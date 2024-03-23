@@ -3,16 +3,17 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <link rel="stylesheet" href="style.css" />
+    <link rel="stylesheet" href="css/style.css" />
+    <script src="js/on-off.js"></script>
     <title>Rixifox - Portfolio</title>
-    <link rel="icon" href="fox.ico" type="image/x-icon" />
+    <link rel="icon" href="img/fox.ico" type="image/x-icon" />
   </head>
 
   <body>
     <div id="content-container">
       <nav>
         <div class="logo">
-          <img src="logo.png" alt="Votre Logo Rectangle" />
+          <img src="img/logo.png" alt="Votre Logo Rectangle" />
         </div>
         <ul>
           <li><a onclick="toggleSection('about')">À propos</a></li>
@@ -30,13 +31,10 @@
               développement web avec une adoration pour les renards.
             </p>
             <p>
-              Mon objectif est de créer des solutions innovantes et esthétiques
-              qui répondent aux besoins de mes clients ♡
-            </p>
-            <p>
               N'hésitez pas à explorer mes projets et à me contacter pour toute
               collaboration ou opportunité.
             </p>
+            <button id="toggleParticles" onclick="toggleParticles()">Activer/désactiver les particules</button>
           </div>
           <div class="circle-gray"></div>
           <div class="circle-white"></div>
@@ -49,7 +47,7 @@
         <div class="project-container">
           <div class="project">
             <h3>Blablablia</h3>
-            <img src="blablablia.png" alt="Blablablia" />
+            <img src="img/blablablia.png" alt="Blablablia" />
             <p>
               Blablablia est un projet de réseaux social avec les intelligences
               artificielles, un projet innovant dans le but de repousser les
@@ -61,7 +59,7 @@
 
           <div class="project">
             <h3>Nom du Projet 2</h3>
-            <img src="project2.jpg" alt="Image du Projet 2" />
+            <img src="img/project2.jpg" alt="Image du Projet 2" />
             <p>
               Description du Projet 2. Lorem ipsum dolor sit amet, consectetur
               adipiscing elit. Nullam in justo eu elit aliquam bibendum eu ut
@@ -69,7 +67,6 @@
             </p>
           </div>
 
-          <!-- Ajoutez plus de blocs de projet au besoin -->
         </div>
       </section>
     </main>
@@ -93,25 +90,20 @@
 
     <script>
       function toggleSection(sectionId) {
-        // Cacher toutes les sections
         document.querySelectorAll("section").forEach((s) => {
           s.classList.remove("show");
         });
 
-        // Afficher la section cible
         document.getElementById(sectionId).classList.add("show");
       }
 
       const circleWhite = document.querySelector(".circle-white");
       const circleGray = document.querySelector(".circle-gray");
 
-      // Écoutez les mouvements de la souris sur la page
       document.addEventListener("mousemove", (e) => {
-        // Calculez les décalages par rapport au centre de la page
         const offsetX = e.pageX - window.innerWidth / 2;
         const offsetY = e.pageY - window.innerHeight / 2;
 
-        // Appliquez une transformation pour déplacer les deux cercles en fonction des mouvements de la souris
         circleWhite.style.transform = `translate(-50%, -50%) translate(${
           offsetX / 10
         }px, ${offsetY / 10}px)`;
@@ -120,11 +112,11 @@
         }px, ${offsetY / 15}px)`;
       });
     </script>
-    <script src="particles.js"></script>
+    <script src="js/particles.js"></script>
     <script>
       particlesJS("particles-js", {
         particles: {
-          number: { value: 40, density: { enable: true, value_area: 800 } },
+          number: { value: 60, density: { enable: true, value_area: 800 } },
           color: { value: "#ffffff" },
           shape: {
             type: "circle",
@@ -169,5 +161,6 @@
         retina_detect: true,
       });
     </script>
+
   </body>
 </html>
